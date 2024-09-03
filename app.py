@@ -5,8 +5,19 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly.io as pio
 
-volcano_df = pd.read_csv('./data/volcano_ds_pop.csv')
-volcano_json = json.load(open('./data/countries.geojson'))
+@st.cache_data   
+def load_data(path):
+    df = pd.read_csv(path)
+    return df
+
+@st.cache_data   
+def load_json(path):
+    df = json.load(open((path))
+    return df
+
+
+volcano_df = load_data('./data/volcano_ds_pop.csv')
+volcano_json = load_json('./data/countries.geojson')
 
 def plot_nr_of_volcanos_by_status(df, status, volcano_json, colorscheme, scale):
     if scale == 'cont':
