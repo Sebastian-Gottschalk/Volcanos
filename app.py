@@ -15,7 +15,7 @@ def load_data(path):
 
 @st.cache_data   
 def load_json(path):
-    df = json.load(open((path))
+    df = json.load(open(path))
     return df
 
 
